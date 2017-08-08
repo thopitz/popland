@@ -12,11 +12,6 @@ OUT="~/research/implementations/landslides/results/"
 #the following constant has been used to rescale coordinate values (in m) for avoiding numerical instabilities
 scalecoor=10^4
 
-#extract significant effects from INLA fit 
-extractSignificantEffects=function(results.df){
-  print(results.df[sign(results.df$`0.025quant`)==sign(results.df$`0.975quant`),])
-}
-
 #load and preprocess data ####
 setwd(DATA)
 
