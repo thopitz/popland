@@ -9,23 +9,8 @@ DATA="~/research/data/"
 WORK="~/research/implementations/landslides/"
 OUT="~/research/implementations/landslides/results/"
 
-#the following constant is used to rescale coordinate values (in m) for avoiding numerical instabilities
+#the following constant has been used to rescale coordinate values (in m) for avoiding numerical instabilities
 scalecoor=10^4
-
-#define some auxiliary R functions ####
-#scale coordinates
-tfScale=function(coor){
-  if(is.null(dim(coor))) coor=t(coor)
-  (cbind(coor[,1]-xrange[1],coor[,2]-yrange[1]))/scalecoor
-}
-
-#rescale coordinates to original scale
-tfRescale=function(coor){
-  ret=cbind(coor[,1],coor[,2])*scalecoor
-  ret[,1]=ret[,1]+xrange[1]
-  ret[,2]=ret[,2]+yrange[1]
-  ret
-}
 
 #extract significant effects from INLA fit 
 extractSignificantEffects=function(results.df){
